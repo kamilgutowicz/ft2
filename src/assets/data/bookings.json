@@ -1,0 +1,20 @@
+[
+    {
+        "bookingId" : 2001,
+        "passengerName": "Markues", 
+        "noOfTickets": 10, 
+        "amount" : 6000
+    },
+    {
+        "bookingId" : 2002,
+        "passengerName": "Riya",  
+        "noOfTickets": 10, 
+        "amount" : 7000
+    },
+    {
+        "bookingId" : 2003,
+        "passengerName": "Ankit", 
+        "noOfTickets": 4, 
+        "amount" : 2320
+    }   
+]

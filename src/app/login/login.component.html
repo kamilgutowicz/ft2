@@ -1,0 +1,100 @@
+<mat-toolbar color="primary" class="navbar">
+    <div> Flight Booking </div>
+    <div>
+        <span> Home </span>
+        <span> About Us </span>
+        <span> Services </span>
+    </div>
+</mat-toolbar>
+
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')" [(opened)]="opened" mode="side"> SideNav</mat-sidenav>
+    <mat-sidenav-content> Main 
+        <button (click)="opened=!opened" mat-flat-button color="primary"> Toggle Opened </button>
+        <button (click)="sidenav.open()" mat-flat-button color="primary"> Open </button>
+        <button (click)="sidenav.close()" mat-flat-button color="primary"> Close </button>
+        <button (click)="sidenav.toggle()" mat-raised-button color="accent"> <mat-icon color="primary">reorder</mat-icon> </button>
+    
+        <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+            <button mat-menu-item [matMenuTriggerFor]="subMenu"> FrontEnd </button>
+            <button mat-menu-item> BackEnd </button>
+        </mat-menu>
+        
+        <button class="center" mat-flat-button [matMenuTriggerFor]="appMenu"> Menu</button>
+
+        <mat-menu #subMenu="matMenu" >
+            <button mat-menu-item> Angular </button>
+            <button mat-menu-item> React </button>
+            <button mat-menu-item> Vue </button>
+        </mat-menu>
+
+        <mat-menu #lazyMenu="matMenu">
+            <ng-template matMenuContent let-name="name" let-hobby="hobby">
+                <button mat-menu-item> Settings</button>
+                <button mat-menu-item> Hobby is {{ hobby }}</button>
+                <button mat-menu-item> Log out {{ name }} </button>
+            </ng-template>
+        </mat-menu>
+
+        <button mat-raised-button [matMenuTriggerData] = "{name : 'Arun', hobby: 'Coding' }" [matMenuTriggerFor]="lazyMenu"> Arun </button>
+        <button mat-raised-button [matMenuTriggerData] = "{name : 'Rahul', hobby: 'Dancing'}" [matMenuTriggerFor]="lazyMenu"> Learning Angular </button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<div>
+    <button mat-raised-button> Hello World</button>
+    <button mat-flat-button> Flat Button </button>
+    <button mat-stroked-button> Stroked Button </button>
+</div>
+
+<div>
+    <button mat-icon-button> Icon </button>
+    <button mat-fab> Fab </button>
+</div>
+
+<div>
+    <button color="primary" mat-raised-button> Hello World</button>
+    <button color="accent" mat-flat-button> Flat Button </button>
+    <button color="warn" disableRipple mat-stroked-button> Stroked Button </button>
+</div>
+
+<br>
+<div>
+    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+        <mat-button-toggle value="cargo"> Cargo Flight</mat-button-toggle>
+        <mat-button-toggle value="passenger"> Passenger Flight </mat-button-toggle>
+        <mat-button-toggle value="ambulance"> Ambulance Flight</mat-button-toggle>
+    </mat-button-toggle-group>  
+    
+    {{ toggleGroup.value }}
+</div>
+
+<div class="col-md-2 offset-md-2">
+    <mat-icon color="primary">fingerprint</mat-icon>
+</div>
+
+<div>
+    <span [matBadge]="notifications" matBadgePosition="above after" matBadgeSize="large" matBadgeColor="accent" matBadgeOverlap="false"> Notifications</span>
+</div>
+
+<div>
+    <!-- <mat-progress-spinner value="60"></mat-progress-spinner> -->
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <button (click)="loadData()"mat-raised-button color="accent"> Load Data </button>
+</div>
+
+
+
+<!-- <div class="mat-display-4"> This is display 4</div>
+<div class="mat-display-3"> This is display 3</div>
+<div class="mat-display-2"> This is display 2</div>
+<div class="mat-display-1"> This is display 1</div>
+
+<div class="mat-headline"> This is heading for h1</div>
+
+<div class="mat-body-1"> This is body </div>
+<div class="mat-body-2"> This is heading for h1</div> -->
+
+

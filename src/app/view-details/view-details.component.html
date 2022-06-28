@@ -1,0 +1,69 @@
+<br>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+
+        <h4> Details from Local Storage </h4>
+        <table class="table table-bordered table-lg" style="background-color: yellow;">
+            
+            <thead>
+                <tr>
+                    <th> Passenger Name</th>
+                    <th> Booking Id </th>
+                    <th> No of Tickets </th> 
+                    <th> Amount </th>
+                    <th> Delete </th>           
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let localStoragebooking of localStorageBookings">
+                    <td> {{ localStoragebooking.passengerName }}</td>
+                    <td> {{ localStoragebooking.bookingId }}</td>
+                    <td> {{ localStoragebooking.noOfTickets }}</td>
+                    <td> {{ localStoragebooking.amount }}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteLocalStorageBooking(localStoragebooking.bookingId)"> Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h4 > Details from static JSON </h4>
+        <table class="table table-bordered table-lg" style="background-color: yellow;">
+            <thead>
+                <tr>
+                    <th> Passenger Name</th>
+                    <th> Booking Id </th>
+                    <th> No of Tickets </th> 
+                    <th> Amount </th>
+                    <th> Delete </th>           
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let booking of bookings; let i = index">
+                    <td> {{ booking.passengerName }}</td>
+                    <td> {{ booking.bookingId }} </td>
+                    <td> {{ booking.noOfTickets }} </td>
+                    <td> {{ booking.amount }} </td>
+                    <!-- <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteRow(booking.bookingId)"> Delete</button>
+                    </td> -->
+
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="removeItemFromArray(i)"> Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>   
+</div>
+</div>
